@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 let slug = require('mongoose-slug-generator');
-let User = require('./usersModel');
+let User = require('../models/User')
 
 mongoose.plugin(slug);
 

@@ -1,11 +1,11 @@
 let express = require('express');
 let router = express.Router();
-let User = require('../models/usersModel');
+let User = require('../models/User');
 let auth = require('../middleware/auth');
 
 //Get Profile
 router.get('/:username', auth.authorizeOpt, async (req, res, next) => {
-  let id = req.user.userId;
+  let id = req.user?req.user.userId:null;
   let username = req.params.username;
   try {
     let user = await User.findOne({ username });

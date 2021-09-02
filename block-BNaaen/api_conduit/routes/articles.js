@@ -1,9 +1,9 @@
 let express = require('express');
 let router = express.Router();
-let Article = require('../models/articleModel');
+let Article = require('../models/Article');
 let auth = require('../middleware/auth');
-let User = require('../models/usersModel');
-let Comment = require('../models/commentsModel');
+let User = require('../models/User');
+let Comment = require('../models/Comment');
 let slugger = require('slugger');
 // feed articles
 router.get('/feed', auth.verifyToken, async (req, res, next) => {

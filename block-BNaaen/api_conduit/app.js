@@ -5,20 +5,19 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 require('dotenv').config();
-mongoose.connect(
-  ' mongodb://localhost/conduitapp',
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  (err) => {
-    console.log(err ? err : 'connected to db');
+
+// connecting to database 
+mongoose.connect('mongodb://localhost/conduitapp',{ useNewUrlParser: true, useUnifiedTopology: true },(err) => {
+    console.log(err ? err : 'connected to Database');
   }
 );
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 var profileRouter = require('./routes/profiles');
 var articleRouter = require('./routes/articles');
 var tagRouter = require('./routes/tags');
-var userRouter = require('./routes/user');
+
 var app = express();
 
 // view engine setup
@@ -32,8 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', indexRouter);
-app.use('/api/user', userRouter);
-app.use('/api/users', usersRouter);
+
+  
 app.use('/api/profiles', profileRouter);
 app.use('/api/articles', articleRouter);
 app.use('/api/tags', tagRouter);
