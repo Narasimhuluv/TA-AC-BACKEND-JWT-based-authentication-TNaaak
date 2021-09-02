@@ -12,6 +12,7 @@ mongoose.connect('mongodb://localhost/conduitapp',{ useNewUrlParser: true, useUn
   }
 );
 
+
 var indexRouter = require('./routes/index');
 
 var profileRouter = require('./routes/profiles');
