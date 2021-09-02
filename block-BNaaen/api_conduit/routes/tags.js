@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let Article = require('../models/articleModel')
+let Article = require('../models/User')
 
 //Get Tags
 router.get('/', async (req, res, next) => {
